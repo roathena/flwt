@@ -1,1 +1,1 @@
-# flwt
+# Weight Logger Application
