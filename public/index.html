@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Weighin' ️‍♀️</title>
+  <link defer href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="weight-tracker bg-gray-100 text-gray-800 font-sans">
+  <h1 class="text-3xl text-center mb-4">Get Weighin' - Track Your Progress</h1>
+
+  <nav class="bg-gray-800 text-white px-4 py-2 flex justify-between items-center mb-4">
+    <a href="./view-stats.html" class="text-xl hover:text-gray-300">View Stats</a>
+  </nav>
+
+  <form id="weight-form" class="weight-form flex flex-col gap-2 w-80 mx-auto">
+    <label for="weight" class="text-gray-700 mb-1">Fuel Your Body (kg):</label>
+    <input type="number" id="weight" name="weight" required class="weight-input border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
+    <button type="submit" class="submit-button bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">Log It!</button>
+  </form>
+  <div id="message" class="message text-italic mt-2"></div>
+  <script src="./script.js"></script>
+</body>
+</html>

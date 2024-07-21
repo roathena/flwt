@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Weighin' - View Stats</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="weight-tracker bg-gray-100 text-gray-800 font-sans">
+  <h1 class="text-3xl text-center mb-4">Get Weighin' - Your Stats</h1>
+  <nav class="bg-gray-800 text-white px-4 py-2 flex justify-between items-center mb-4">
+    <a href="./index.html" class="text-xl hover:text-gray-300">Log Weight</a>
+  </nav>
+  <div id="stats-container" class="container mx-auto px-4 py-4 bg-white rounded shadow">
+    <h2>Logged Weights</h2>
+    <ul id="stats-list" class="list-disc pl-4">
+      </ul>
+  </div>
+
+  <script src="./stats.js"></script>
+</body>
+</html>
