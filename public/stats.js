@@ -20,6 +20,6 @@ async function fetchStats() {
 }
 
 // Call fetchStats() when the "View Stats" page loads
-if (window.location.pathname === '/view-stats.html') {
+if (window.location.pathname === './view-stats.html') {
     fetchStats();
 }
