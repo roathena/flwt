@@ -11,10 +11,14 @@
   <nav class="bg-gray-800 text-white px-4 py-2 flex justify-between items-center mb-4">
     <a href="./index.html" class="text-xl hover:text-gray-300">Log Weight</a>
   </nav>
-  <div id="stats-container" class="container mx-auto px-4 py-4 bg-white rounded shadow">
+  <div id="stats-container" class="container mx-auto px-4 py-4 bg-white   relative">
     <h2>Logged Weights</h2>
     <ul id="stats-list" class="list-disc pl-4">
-      </ul>
+    </ul>
+  </div>
+  <div id="button-container" class="container mx-auto px-4 py-4 bg-white  relative">
+    <div id="message" class="message text-italic mt-2"></div>
+    <button id="clear-stats-btn" class="top-0 left-0 text-xs text-red-500 hover:text-red-700 mt-2 px-2 py-2 z-index: 1">Clear All Records</button>
   </div>
 
   <script src="./stats.js"></script>

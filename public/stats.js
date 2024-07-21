@@ -19,6 +19,25 @@ async function fetchStats() {
     }
 }
 
+const clearAllBtn = document.getElementById('clear-stats-btn');
+
+clearAllBtn.addEventListener('click', async () => {
+  // Confirmation prompt before deleting
+  if (confirm('Are you sure you want to delete all weight entries?')) {
+    try {
+      // Send DELETE request to `/weights` endpoint
+      const response = await fetch('/weights', { method: 'DELETE' });
+      const data = await response.json();
+
+      // Clear the displayed weight list (optional)
+      document.getElementById('message').innerHTML = data.message;
+    } catch (error) {
+      console.error(error);
+      document.getElementById('message').innerHTML = error;
+    }
+  }
+});
+
 // Call fetchStats() when the "View Stats" page loads
 if (window.location.pathname === '/view-stats.html') {
     fetchStats();

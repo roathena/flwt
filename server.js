@@ -58,6 +58,19 @@ app.get('/stats', async (req, res) => {
   }
 });
 
+app.delete('/weights', async (req, res) => {
+  try {
+    // Delete all weight entries using deleteMany
+    const deleteResult = await Weight.deleteMany({});
+
+    // Respond with the number of deleted documents
+    res.json({ message: `Deleted ${deleteResult.deletedCount} weight entries!` });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error deleting weights' });
+  }
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
