@@ -1,11 +1,11 @@
-// const MONGO_URI = "mongodb+srv://roathena:1122@cluster0.zclj5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const express = require('express');
 const mongoose = require('mongoose');
 const Weight = require('./models/weight');
 const path = require('path');
+require('dotenv').config()
 
 // Replace with your actual MongoDB Atlas connection URI
-const MONGO_URI = "mongodb+srv://roathena:1122@cluster0.zclj5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI = `${process.env.DATABASE_URL}`;
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log('Connected to MongoDB Atlas'))
@@ -41,22 +41,22 @@ app.post('/weight', async (req, res) => {
 });
 
 app.get('/stats', async (req, res) => {
-    try {
-      // Retrieve all weight entries from the database
-      const weights = await Weight.find();
-  
-      // Format weight data with formatted dates and times
-      const formattedWeights = weights.map(weight => ({
-        weight: weight.weight,
-        formattedDateTime: weight.date.toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      }));
-  
-      res.json(formattedWeights); // Send formatted weights as JSON response
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Error fetching weights' }); // Handle errors
-    }
-  });
+  try {
+    // Retrieve all weight entries from the database
+    const weights = await Weight.find();
+
+    // Format weight data with formatted dates and times
+    const formattedWeights = weights.map(weight => ({
+      weight: weight.weight,
+      formattedDateTime: weight.date.toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
+    }));
+
+    res.json(formattedWeights); // Send formatted weights as JSON response
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching weights' }); // Handle errors
+  }
+});
 
 const port = process.env.PORT || 5000;
 
